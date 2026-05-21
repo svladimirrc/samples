@@ -227,13 +227,16 @@
     video: document.getElementById("camera"),
     canvas: document.getElementById("snapshot"),
     stage: document.querySelector(".media-stage"),
+    dropzone: document.getElementById("dropzone"),
     startCamera: document.getElementById("startCamera"),
     capturePhoto: document.getElementById("capturePhoto"),
     uploadPhoto: document.getElementById("uploadPhoto"),
+    resetPhoto: document.getElementById("resetPhoto"),
     statusMessage: document.getElementById("statusMessage"),
     detectedShape: document.getElementById("detectedShape"),
     detectedHair: document.getElementById("detectedHair"),
     confidence: document.getElementById("confidence"),
+    confidenceBar: document.getElementById("confidenceBar"),
     shapeOverride: document.getElementById("shapeOverride"),
     hairOverride: document.getElementById("hairOverride"),
     recommendationSummary: document.getElementById("recommendationSummary"),
@@ -241,6 +244,7 @@
     avoidTips: document.getElementById("avoidTips"),
     brandFilter: document.getElementById("brandFilter"),
     styleFilter: document.getElementById("styleFilter"),
+    resultCount: document.getElementById("resultCount"),
     productGrid: document.getElementById("productGrid")
   };
 
@@ -255,6 +259,13 @@
     els.startCamera.addEventListener("click", startCamera);
     els.capturePhoto.addEventListener("click", capturePhoto);
     els.uploadPhoto.addEventListener("change", handleUpload);
+    els.resetPhoto.addEventListener("click", resetPhoto);
+    els.dropzone.addEventListener("click", handleDropzoneClick);
+    els.dropzone.addEventListener("keydown", handleDropzoneKeydown);
+    els.dropzone.addEventListener("dragenter", showDragState);
+    els.dropzone.addEventListener("dragover", showDragState);
+    els.dropzone.addEventListener("dragleave", hideDragState);
+    els.dropzone.addEventListener("drop", handleDrop);
     els.shapeOverride.addEventListener("change", applyOverrides);
     els.hairOverride.addEventListener("change", applyOverrides);
     els.brandFilter.addEventListener("change", renderProducts);
@@ -290,7 +301,7 @@
       els.video.srcObject = state.cameraStream;
       els.capturePhoto.disabled = false;
       els.stage.classList.add("is-video");
-      els.stage.classList.remove("has-photo");
+      els.stage.classList.remove("has-photo", "drag-over");
       setStatus("Camara lista. Centra tu rostro y presiona Tomar foto.");
     } catch (error) {
       setStatus("No se pudo iniciar la camara. Puedes subir una foto desde tu dispositivo.");
@@ -327,6 +338,53 @@
       return;
     }
 
+    loadImageFile(file);
+    event.target.value = "";
+  }
+
+  function handleDropzoneClick() {
+    if (!els.stage.classList.contains("is-video")) {
+      els.uploadPhoto.click();
+    }
+  }
+
+  function handleDropzoneKeydown(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleDropzoneClick();
+    }
+  }
+
+  function showDragState(event) {
+    event.preventDefault();
+    els.stage.classList.add("drag-over");
+  }
+
+  function hideDragState(event) {
+    event.preventDefault();
+    els.stage.classList.remove("drag-over");
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    els.stage.classList.remove("drag-over");
+
+    const file = Array.from(event.dataTransfer.files || []).find((item) => item.type.startsWith("image/"));
+    if (!file) {
+      setStatus("Arrastra un archivo de imagen para analizarlo.");
+      return;
+    }
+
+    loadImageFile(file);
+  }
+
+  function loadImageFile(file) {
+    if (!file.type.startsWith("image/")) {
+      setStatus("Selecciona una imagen valida para continuar.");
+      return;
+    }
+
+    setStatus("Cargando foto...");
     const reader = new FileReader();
     reader.onload = () => {
       const image = new Image();
@@ -343,6 +401,27 @@
     reader.readAsDataURL(file);
   }
 
+  function resetPhoto() {
+    stopCamera();
+    state.analysis = null;
+    state.selectedShape = "oval";
+    state.selectedHair = "open";
+    els.capturePhoto.disabled = true;
+    els.video.srcObject = null;
+    els.canvas.width = 0;
+    els.canvas.height = 0;
+    els.stage.classList.remove("is-video", "has-photo", "drag-over");
+    els.shapeOverride.value = "auto";
+    els.hairOverride.value = "auto";
+    els.detectedShape.textContent = "Pendiente";
+    els.detectedHair.textContent = "Pendiente";
+    els.confidence.textContent = "--";
+    els.confidenceBar.style.width = "0%";
+    setStatus("Esperando una foto para analizar.");
+    updateRecommendationView();
+    renderProducts();
+  }
+
   function drawToCanvas(source, sourceWidth, sourceHeight) {
     const maxSide = 1280;
     const scale = Math.min(1, maxSide / Math.max(sourceWidth, sourceHeight));
@@ -353,7 +432,7 @@
     els.canvas.width = width;
     els.canvas.height = height;
     context.drawImage(source, 0, 0, width, height);
-    els.stage.classList.remove("is-video");
+    els.stage.classList.remove("is-video", "drag-over");
     els.stage.classList.add("has-photo");
   }
 
@@ -714,6 +793,7 @@
     els.detectedShape.textContent = FACE_SHAPES[analysis.shape].label;
     els.detectedHair.textContent = HAIR_PROFILES[analysis.hair].label;
     els.confidence.textContent = `${analysis.confidence}%`;
+    els.confidenceBar.style.width = `${analysis.confidence}%`;
   }
 
   function updateRecommendationView() {
@@ -748,14 +828,16 @@
 
     els.productGrid.innerHTML = "";
 
+    els.resultCount.textContent = products.length;
+
     if (!products.length) {
-      els.productGrid.innerHTML = '<p class="status">No hay modelos con esos filtros.</p>';
+      els.productGrid.innerHTML = '<p class="empty-state">No hay modelos con esos filtros. Prueba con otra marca o estilo.</p>';
       return;
     }
 
-    products.forEach((product) => {
+    products.forEach((product, index) => {
       const article = document.createElement("article");
-      article.className = "product-card";
+      article.className = `product-card ${index === 0 ? "best-match" : ""}`;
       article.innerHTML = `
         <div class="product-visual">
           <div class="glasses-icon shape-${product.style}" aria-hidden="true">
@@ -773,6 +855,8 @@
           </div>
           <h3>${product.model}</h3>
           <p>${product.description}</p>
+          <div class="match-track" aria-hidden="true"><span style="width: ${product.score}%"></span></div>
+          <p class="match-reason">${productReason(product)}</p>
           <div class="tags">
             <span class="tag">${styleLabel(product.style)}</span>
             <span class="tag">${product.color}</span>
@@ -800,6 +884,26 @@
     }
 
     return clamp(score, 45, 98);
+  }
+
+  function productReason(product) {
+    const reasons = [];
+    const shape = FACE_SHAPES[state.selectedShape].label.toLowerCase();
+    const hair = HAIR_PROFILES[state.selectedHair].label.toLowerCase();
+
+    if (product.compatibleShapes.includes(state.selectedShape)) {
+      reasons.push(`favorece rostro ${shape}`);
+    }
+
+    if (HAIR_PROFILES[state.selectedHair].boostStyles.includes(product.style)) {
+      reasons.push(`equilibra ${hair}`);
+    }
+
+    if (!reasons.length) {
+      reasons.push("aporta una alternativa de estilo para comparar");
+    }
+
+    return `Recomendado porque ${reasons.join(" y ")}.`;
   }
 
   function styleLabel(style) {
