@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visage Lens Advisor</title>
+    <meta
+      name="description"
+      content="App local para analizar una foto del rostro y recomendar lentes por forma de cara, corte y marcas."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Navegacion principal">
+        <a class="brand" href="#inicio" aria-label="Visage Lens Advisor">
+          <span class="brand-mark">VL</span>
+          <span>Visage Lens Advisor</span>
+        </a>
+        <div class="nav-links">
+          <a href="#analisis">Analisis</a>
+          <a href="#recomendaciones">Recomendaciones</a>
+          <a href="#catalogo">Catalogo</a>
+        </div>
+      </nav>
+
+      <section id="inicio" class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Asesor de lentes con foto</p>
+          <h1>Encuentra los lentes que mejor armonizan con tu rostro.</h1>
+          <p>
+            Toma una foto o sube una imagen. La app estima la forma del rostro y el
+            perfil del corte para recomendar monturas de marcas como Ray-Ban,
+            Carolina Herrera, Oakley, Prada, Persol, Vogue Eyewear y mas.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#analisis">Empezar analisis</a>
+            <a class="button secondary" href="#catalogo">Ver modelos</a>
+          </div>
+          <p class="privacy-note">
+            El procesamiento ocurre en tu navegador; la foto no se envia a ningun servidor.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen del flujo">
+          <div class="scan-frame">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="face-outline"></div>
+          </div>
+          <div>
+            <strong>Analisis en 3 pasos</strong>
+            <ol>
+              <li>Captura o sube una foto frontal.</li>
+              <li>Ajusta el resultado si lo deseas.</li>
+              <li>Recibe modelos por marca, forma y estilo.</li>
+            </ol>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section id="analisis" class="section analysis-section">
+        <div class="section-heading">
+          <p class="eyebrow">Paso 1</p>
+          <h2>Captura la foto del rostro</h2>
+          <p>
+            Usa una foto de frente, con buena luz y sin lentes. Si el analisis automatico no
+            coincide, puedes corregir la forma y el corte antes de ver recomendaciones.
+          </p>
+        </div>
+
+        <div class="analysis-layout">
+          <article class="camera-panel panel">
+            <div class="media-stage">
+              <video id="camera" autoplay playsinline muted aria-label="Vista previa de la camara"></video>
+              <canvas id="snapshot" aria-label="Foto capturada"></canvas>
+              <div id="placeholder" class="placeholder">
+                <div class="placeholder-icon">◎</div>
+                <p>Inicia la camara o sube una foto para comenzar.</p>
+              </div>
+            </div>
+
+            <div class="control-grid">
+              <button id="startCamera" class="button primary" type="button">Iniciar camara</button>
+              <button id="capturePhoto" class="button secondary" type="button" disabled>Tomar foto</button>
+              <label class="button upload" for="uploadPhoto">Subir foto</label>
+              <input id="uploadPhoto" type="file" accept="image/*">
+            </div>
+
+            <p id="statusMessage" class="status" role="status">
+              Esperando una foto para analizar.
+            </p>
+          </article>
+
+          <article class="result-panel panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Paso 2</p>
+              <h3>Resultado del analisis</h3>
+            </div>
+
+            <div class="result-cards">
+              <div class="metric-card">
+                <span>Forma estimada</span>
+                <strong id="detectedShape">Pendiente</strong>
+              </div>
+              <div class="metric-card">
+                <span>Perfil de corte</span>
+                <strong id="detectedHair">Pendiente</strong>
+              </div>
+              <div class="metric-card">
+                <span>Confianza</span>
+                <strong id="confidence">--</strong>
+              </div>
+            </div>
+
+            <div class="adjustments">
+              <label for="shapeOverride">Forma del rostro</label>
+              <select id="shapeOverride">
+                <option value="auto">Usar analisis automatico</option>
+                <option value="oval">Ovalado</option>
+                <option value="round">Redondo</option>
+                <option value="square">Cuadrado</option>
+                <option value="heart">Corazon</option>
+                <option value="diamond">Diamante</option>
+                <option value="rectangle">Rectangular</option>
+              </select>
+
+              <label for="hairOverride">Corte o volumen</label>
+              <select id="hairOverride">
+                <option value="auto">Usar analisis automatico</option>
+                <option value="open">Rostro despejado</option>
+                <option value="fringe">Flequillo o frente cubierta</option>
+                <option value="volume">Volumen superior</option>
+                <option value="sideVolume">Volumen lateral</option>
+              </select>
+            </div>
+
+            <div id="recommendationSummary" class="recommendation-summary">
+              <p>Cuando analices una foto veras aqui el tipo de montura recomendado.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="recomendaciones" class="section recommendation-section">
+        <div class="section-heading">
+          <p class="eyebrow">Paso 3</p>
+          <h2>Recomendaciones personalizadas</h2>
+          <p>
+            La lista se ordena por compatibilidad con la forma de rostro y el corte detectados.
+          </p>
+        </div>
+
+        <div class="recommendation-grid">
+          <article class="panel advice-panel">
+            <h3>Que buscar</h3>
+            <ul id="fitTips" class="tip-list">
+              <li>Analiza una foto para generar consejos.</li>
+            </ul>
+          </article>
+
+          <article class="panel advice-panel">
+            <h3>Que evitar</h3>
+            <ul id="avoidTips" class="tip-list">
+              <li>Los puntos de ajuste apareceran aqui.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogo" class="section catalog-section">
+        <div class="section-heading">
+          <p class="eyebrow">Catalogo curado</p>
+          <h2>Modelos por marca</h2>
+          <p>
+            Explora monturas de diferentes companias. Los puntajes se actualizan despues del analisis.
+          </p>
+        </div>
+
+        <div class="filters panel" aria-label="Filtros del catalogo">
+          <label for="brandFilter">Marca</label>
+          <select id="brandFilter">
+            <option value="all">Todas las marcas</option>
+          </select>
+
+          <label for="styleFilter">Estilo</label>
+          <select id="styleFilter">
+            <option value="all">Todos los estilos</option>
+            <option value="aviator">Aviador</option>
+            <option value="cat-eye">Cat eye</option>
+            <option value="geometric">Geometrico</option>
+            <option value="rectangle">Rectangular</option>
+            <option value="round">Redondo</option>
+            <option value="wayfarer">Wayfarer</option>
+          </select>
+        </div>
+
+        <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Prototipo de asesoria visual. Las recomendaciones son orientativas y deben validarse con
+        medidas reales de puente, ancho de lente y ajuste de varilla.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
