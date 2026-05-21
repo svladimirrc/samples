@@ -111,6 +111,8 @@
       model: "Wayfarer Classic RB2140",
       style: "wayfarer",
       color: "Negro brillante",
+      frameColor: "#111111",
+      lensTint: "rgba(70, 98, 84, 0.22)",
       price: "$$",
       compatibleShapes: ["round", "oval", "heart"],
       description: "Icono angular que define rostros redondos y mantiene un look urbano."
@@ -120,6 +122,8 @@
       model: "Aviator Metal RB3025",
       style: "aviator",
       color: "Dorado / verde",
+      frameColor: "#c7a35b",
+      lensTint: "rgba(63, 104, 75, 0.24)",
       price: "$$",
       compatibleShapes: ["square", "heart", "rectangle", "oval"],
       description: "Curva amplia y puente delgado para suavizar mandibulas y equilibrar frentes."
@@ -129,6 +133,8 @@
       model: "CH Carolina Cat Eye",
       style: "cat-eye",
       color: "Carey miel",
+      frameColor: "#8a4d2f",
+      lensTint: "rgba(134, 90, 62, 0.18)",
       price: "$$$",
       compatibleShapes: ["diamond", "heart", "oval"],
       description: "Silueta femenina con elevacion lateral para abrir la mirada."
@@ -137,9 +143,11 @@
       brand: "Carolina Herrera",
       model: "Essential Rectangular",
       style: "rectangle",
-      color: "Borgona transludico",
+      color: "Borgona translucido",
+      frameColor: "#7d2639",
+      lensTint: "rgba(125, 38, 57, 0.14)",
       price: "$$$",
-      compatibleShapes: ["round", "oval", "volume"],
+      compatibleShapes: ["round", "oval", "rectangle"],
       description: "Rectangular pulido con color elegante para definir sin verse pesado."
     },
     {
@@ -147,15 +155,30 @@
       model: "Holbrook",
       style: "rectangle",
       color: "Negro mate",
+      frameColor: "#191919",
+      lensTint: "rgba(58, 75, 92, 0.28)",
       price: "$$",
       compatibleShapes: ["round", "oval", "heart"],
       description: "Perfil deportivo con lineas rectas que estructura rasgos suaves."
+    },
+    {
+      brand: "Oakley",
+      model: "Frogskins Range",
+      style: "wayfarer",
+      color: "Azul humo",
+      frameColor: "#27445c",
+      lensTint: "rgba(52, 93, 126, 0.26)",
+      price: "$$",
+      compatibleShapes: ["round", "oval", "diamond"],
+      description: "Wayfarer deportivo con puente comodo y contraste moderno."
     },
     {
       brand: "Prada",
       model: "Symbole Geometric",
       style: "geometric",
       color: "Negro / havana",
+      frameColor: "#17110f",
+      lensTint: "rgba(84, 64, 50, 0.2)",
       price: "$$$$",
       compatibleShapes: ["oval", "diamond", "round"],
       description: "Geometria moderna para un resultado editorial y sofisticado."
@@ -165,6 +188,8 @@
       model: "PO3092SM Round",
       style: "round",
       color: "Havana clasico",
+      frameColor: "#6f4a2f",
+      lensTint: "rgba(104, 71, 46, 0.18)",
       price: "$$$",
       compatibleShapes: ["square", "rectangle", "diamond"],
       description: "Redondo con acetato calido para suavizar angulos y aportar caracter."
@@ -174,6 +199,8 @@
       model: "Soft Cat Eye VO",
       style: "cat-eye",
       color: "Rosa transparente",
+      frameColor: "#d08a9e",
+      lensTint: "rgba(208, 138, 158, 0.12)",
       price: "$$",
       compatibleShapes: ["heart", "diamond", "oval"],
       description: "Cat eye ligero para levantar facciones con una presencia suave."
@@ -183,6 +210,8 @@
       model: "Chelsea Aviator",
       style: "aviator",
       color: "Rose gold",
+      frameColor: "#c48b7a",
+      lensTint: "rgba(196, 139, 122, 0.18)",
       price: "$$$",
       compatibleShapes: ["square", "rectangle", "heart"],
       description: "Aviador glam con lente alto que ayuda a compensar rostros largos."
@@ -192,6 +221,8 @@
       model: "Web Stripe Square",
       style: "geometric",
       color: "Negro con detalle verde-rojo",
+      frameColor: "#101010",
+      lensTint: "rgba(55, 78, 60, 0.22)",
       price: "$$$$",
       compatibleShapes: ["oval", "round", "diamond"],
       description: "Montura con presencia para quienes quieren un accesorio protagonista."
@@ -201,6 +232,8 @@
       model: "DG Sharp Rectangle",
       style: "rectangle",
       color: "Carey oscuro",
+      frameColor: "#4b2d1f",
+      lensTint: "rgba(75, 45, 31, 0.18)",
       price: "$$$",
       compatibleShapes: ["round", "oval"],
       description: "Lineas nitidas y acetato fuerte para estilizar rostros con curvas."
@@ -210,9 +243,66 @@
       model: "Fausto Navigator",
       style: "aviator",
       color: "Havana / dorado",
+      frameColor: "#8a5d32",
+      lensTint: "rgba(88, 71, 54, 0.24)",
       price: "$$$$",
       compatibleShapes: ["square", "rectangle", "oval"],
       description: "Navigator amplio que suaviza rasgos marcados sin perder presencia."
+    },
+    {
+      brand: "Versace",
+      model: "Medusa Biggie",
+      style: "rectangle",
+      color: "Negro dorado",
+      frameColor: "#0d0d0d",
+      lensTint: "rgba(30, 30, 30, 0.28)",
+      price: "$$$$",
+      compatibleShapes: ["round", "oval", "heart"],
+      description: "Rectangular audaz con presencia de lujo y lineas que definen el rostro."
+    },
+    {
+      brand: "Burberry",
+      model: "B Stripe Round",
+      style: "round",
+      color: "Beige havana",
+      frameColor: "#b18a5f",
+      lensTint: "rgba(177, 138, 95, 0.16)",
+      price: "$$$",
+      compatibleShapes: ["square", "rectangle", "diamond"],
+      description: "Redondo suave con tono calido para un look refinado y ligero."
+    },
+    {
+      brand: "Armani Exchange",
+      model: "AX Metal Geometry",
+      style: "geometric",
+      color: "Gunmetal",
+      frameColor: "#4f575b",
+      lensTint: "rgba(80, 92, 98, 0.16)",
+      price: "$$",
+      compatibleShapes: ["oval", "round", "diamond"],
+      description: "Geometrico metalico para marcar estilo sin cargar el rostro."
+    },
+    {
+      brand: "Carrera",
+      model: "Champion Aviator",
+      style: "aviator",
+      color: "Negro / gris",
+      frameColor: "#1b1d20",
+      lensTint: "rgba(40, 47, 56, 0.3)",
+      price: "$$$",
+      compatibleShapes: ["square", "rectangle", "heart", "oval"],
+      description: "Aviador deportivo de lente alto para balancear rasgos fuertes."
+    },
+    {
+      brand: "Maui Jim",
+      model: "Ocean Round",
+      style: "round",
+      color: "Azul oceano",
+      frameColor: "#1d5d77",
+      lensTint: "rgba(38, 118, 150, 0.24)",
+      price: "$$$",
+      compatibleShapes: ["square", "rectangle", "diamond"],
+      description: "Redondo fresco con tinte azul para suavizar y aportar luminosidad."
     }
   ];
 
@@ -220,7 +310,11 @@
     analysis: null,
     selectedShape: "oval",
     selectedHair: "open",
-    cameraStream: null
+    cameraStream: null,
+    baseImageData: null,
+    faceBounds: null,
+    selectedTryOnIndex: 0,
+    tryOnVisible: false
   };
 
   const els = {
@@ -237,6 +331,11 @@
     detectedHair: document.getElementById("detectedHair"),
     confidence: document.getElementById("confidence"),
     confidenceBar: document.getElementById("confidenceBar"),
+    tryOnModel: document.getElementById("tryOnModel"),
+    applyTryOn: document.getElementById("applyTryOn"),
+    clearTryOn: document.getElementById("clearTryOn"),
+    tryOnBadge: document.getElementById("tryOnBadge"),
+    tryOnStatus: document.getElementById("tryOnStatus"),
     shapeOverride: document.getElementById("shapeOverride"),
     hairOverride: document.getElementById("hairOverride"),
     recommendationSummary: document.getElementById("recommendationSummary"),
@@ -250,8 +349,16 @@
 
   function init() {
     populateBrandFilter();
+    populateTryOnModels();
     bindEvents();
+    updateTryOnControls();
+    if (state.baseImageData && state.tryOnVisible) {
+      restoreBasePhoto();
+      drawSelectedTryOn();
+    }
+
     updateRecommendationView();
+    updateTryOnControls();
     renderProducts();
   }
 
@@ -260,6 +367,9 @@
     els.capturePhoto.addEventListener("click", capturePhoto);
     els.uploadPhoto.addEventListener("change", handleUpload);
     els.resetPhoto.addEventListener("click", resetPhoto);
+    els.tryOnModel.addEventListener("change", selectTryOnModel);
+    els.applyTryOn.addEventListener("click", applySelectedTryOn);
+    els.clearTryOn.addEventListener("click", clearTryOn);
     els.dropzone.addEventListener("click", handleDropzoneClick);
     els.dropzone.addEventListener("keydown", handleDropzoneKeydown);
     els.dropzone.addEventListener("dragenter", showDragState);
@@ -270,6 +380,7 @@
     els.hairOverride.addEventListener("change", applyOverrides);
     els.brandFilter.addEventListener("change", renderProducts);
     els.styleFilter.addEventListener("change", renderProducts);
+    els.productGrid.addEventListener("click", handleProductGridClick);
   }
 
   function populateBrandFilter() {
@@ -279,6 +390,16 @@
       option.value = brand;
       option.textContent = brand;
       els.brandFilter.append(option);
+    });
+  }
+
+  function populateTryOnModels() {
+    els.tryOnModel.innerHTML = "";
+    PRODUCTS.forEach((product, index) => {
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = `${product.brand} - ${product.model}`;
+      els.tryOnModel.append(option);
     });
   }
 
@@ -406,6 +527,10 @@
     state.analysis = null;
     state.selectedShape = "oval";
     state.selectedHair = "open";
+    state.baseImageData = null;
+    state.faceBounds = null;
+    state.selectedTryOnIndex = 0;
+    state.tryOnVisible = false;
     els.capturePhoto.disabled = true;
     els.video.srcObject = null;
     els.canvas.width = 0;
@@ -417,6 +542,7 @@
     els.detectedHair.textContent = "Pendiente";
     els.confidence.textContent = "--";
     els.confidenceBar.style.width = "0%";
+    updateTryOnControls();
     setStatus("Esperando una foto para analizar.");
     updateRecommendationView();
     renderProducts();
@@ -441,16 +567,309 @@
     const sample = getSampledImageData(context, els.canvas.width, els.canvas.height);
     const analysis = analyzeFace(sample.imageData, sample.width, sample.height);
 
+    state.baseImageData = context.getImageData(0, 0, els.canvas.width, els.canvas.height);
     state.analysis = analysis;
+    state.faceBounds = scaleBounds(analysis.bounds, els.canvas.width / sample.width, els.canvas.height / sample.height);
     state.selectedShape = analysis.shape;
     state.selectedHair = analysis.hair;
+    state.selectedTryOnIndex = bestProductIndex();
+    state.tryOnVisible = true;
     els.shapeOverride.value = "auto";
     els.hairOverride.value = "auto";
 
     updateDetectedMetrics(analysis);
     updateRecommendationView();
+    updateTryOnControls();
+    restoreBasePhoto();
+    drawSelectedTryOn();
     renderProducts();
-    setStatus("Foto analizada. Puedes ajustar el resultado si lo necesitas.");
+    setStatus("Foto analizada. Ya puedes simular distintos lentes sobre tu rostro.");
+  }
+
+  function scaleBounds(bounds, scaleX, scaleY) {
+    return {
+      minX: bounds.minX * scaleX,
+      maxX: bounds.maxX * scaleX,
+      minY: bounds.minY * scaleY,
+      maxY: bounds.maxY * scaleY,
+      fallback: bounds.fallback
+    };
+  }
+
+  function restoreBasePhoto() {
+    if (!state.baseImageData) {
+      return;
+    }
+
+    const context = els.canvas.getContext("2d", { willReadFrequently: true });
+    context.putImageData(state.baseImageData, 0, 0);
+  }
+
+  function drawSelectedTryOn() {
+    if (!state.tryOnVisible || !state.baseImageData) {
+      return;
+    }
+
+    drawTryOn(PRODUCTS[state.selectedTryOnIndex]);
+  }
+
+  function selectTryOnModel() {
+    const index = Number(els.tryOnModel.value);
+    if (Number.isNaN(index)) {
+      return;
+    }
+
+    state.selectedTryOnIndex = index;
+    if (state.baseImageData) {
+      state.tryOnVisible = true;
+      restoreBasePhoto();
+      drawSelectedTryOn();
+      setStatus(`Simulando ${PRODUCTS[index].brand} ${PRODUCTS[index].model} en tu foto.`);
+    }
+
+    updateTryOnControls();
+    renderProducts();
+  }
+
+  function applySelectedTryOn() {
+    if (!state.baseImageData) {
+      setStatus("Primero toma o sube una foto para probar lentes.");
+      return;
+    }
+
+    state.selectedTryOnIndex = Number(els.tryOnModel.value) || state.selectedTryOnIndex;
+    state.tryOnVisible = true;
+    restoreBasePhoto();
+    drawSelectedTryOn();
+    updateTryOnControls();
+    renderProducts();
+  }
+
+  function clearTryOn() {
+    if (!state.baseImageData) {
+      return;
+    }
+
+    state.tryOnVisible = false;
+    restoreBasePhoto();
+    updateTryOnControls();
+    renderProducts();
+    setStatus("Vista sin lentes. Puedes activar otra montura cuando quieras.");
+  }
+
+  function handleProductGridClick(event) {
+    const button = event.target.closest("[data-try-on-index]");
+    if (!button) {
+      return;
+    }
+
+    const index = Number(button.dataset.tryOnIndex);
+    state.selectedTryOnIndex = index;
+    els.tryOnModel.value = String(index);
+
+    if (!state.baseImageData) {
+      updateTryOnControls();
+      document.getElementById("analisis").scrollIntoView({ behavior: "smooth", block: "start" });
+      setStatus("Toma o sube una foto para simular este modelo en tu rostro.");
+      return;
+    }
+
+    state.tryOnVisible = true;
+    restoreBasePhoto();
+    drawSelectedTryOn();
+    updateTryOnControls();
+    renderProducts();
+    document.getElementById("analisis").scrollIntoView({ behavior: "smooth", block: "start" });
+    setStatus(`Simulando ${PRODUCTS[index].brand} ${PRODUCTS[index].model} en tu foto.`);
+  }
+
+  function updateTryOnControls() {
+    const hasPhoto = Boolean(state.baseImageData);
+    const product = PRODUCTS[state.selectedTryOnIndex];
+
+    els.tryOnModel.disabled = !hasPhoto;
+    els.applyTryOn.disabled = !hasPhoto;
+    els.clearTryOn.disabled = !hasPhoto || !state.tryOnVisible;
+    els.tryOnModel.value = String(state.selectedTryOnIndex);
+    els.tryOnBadge.textContent = hasPhoto ? (state.tryOnVisible ? "Simulando" : "Foto lista") : "Sin foto";
+    els.tryOnStatus.textContent = hasPhoto
+      ? `${state.tryOnVisible ? "Viendo" : "Seleccionado"}: ${product.brand} ${product.model}.`
+      : "Sube o toma una foto para ver una montura simulada.";
+  }
+
+  function bestProductIndex() {
+    let bestIndex = 0;
+    let bestScore = -Infinity;
+
+    PRODUCTS.forEach((product, index) => {
+      const score = productScore(product);
+      if (score > bestScore) {
+        bestScore = score;
+        bestIndex = index;
+      }
+    });
+
+    return bestIndex;
+  }
+
+  function drawTryOn(product) {
+    if (!state.faceBounds) {
+      return;
+    }
+
+    const context = els.canvas.getContext("2d", { willReadFrequently: true });
+    const bounds = state.faceBounds;
+    const faceWidth = bounds.maxX - bounds.minX;
+    const faceHeight = bounds.maxY - bounds.minY;
+    const centerX = bounds.minX + faceWidth / 2;
+    const centerY = bounds.minY + faceHeight * 0.39;
+    const frameWidth = clamp(faceWidth * frameWidthRatio(product.style), 120, els.canvas.width * 0.82);
+    const lensGap = frameWidth * 0.075;
+    const lensWidth = (frameWidth - lensGap) / 2;
+    const lensHeight = lensWidth * lensHeightRatio(product.style);
+    const leftX = centerX - lensGap / 2 - lensWidth;
+    const rightX = centerX + lensGap / 2;
+    const lensY = centerY - lensHeight / 2;
+    const lineWidth = clamp(frameWidth * 0.048, 5, 13);
+
+    context.save();
+    context.lineCap = "round";
+    context.lineJoin = "round";
+    context.shadowColor = "rgba(0, 0, 0, 0.24)";
+    context.shadowBlur = lineWidth * 1.15;
+    context.shadowOffsetY = lineWidth * 0.35;
+    context.strokeStyle = product.frameColor;
+    context.fillStyle = product.lensTint;
+    context.lineWidth = lineWidth;
+
+    drawLens(context, product.style, leftX, lensY, lensWidth, lensHeight, "left");
+    drawLens(context, product.style, rightX, lensY, lensWidth, lensHeight, "right");
+
+    context.beginPath();
+    context.moveTo(leftX + lensWidth, centerY);
+    context.bezierCurveTo(centerX - lensGap * 0.25, centerY - lensHeight * 0.13, centerX + lensGap * 0.25, centerY - lensHeight * 0.13, rightX, centerY);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(leftX, centerY - lensHeight * 0.05);
+    context.lineTo(leftX - frameWidth * 0.16, centerY + lensHeight * 0.02);
+    context.moveTo(rightX + lensWidth, centerY - lensHeight * 0.05);
+    context.lineTo(rightX + lensWidth + frameWidth * 0.16, centerY + lensHeight * 0.02);
+    context.stroke();
+
+    if (product.brand === "Gucci") {
+      drawAccentStripe(context, rightX + lensWidth * 0.58, lensY + lensHeight * 0.08, lineWidth);
+    }
+
+    if (product.brand === "Versace" || product.brand === "Carolina Herrera") {
+      drawCornerDot(context, leftX + lensWidth * 0.12, lensY + lensHeight * 0.2, lineWidth, product.frameColor);
+      drawCornerDot(context, rightX + lensWidth * 0.88, lensY + lensHeight * 0.2, lineWidth, product.frameColor);
+    }
+
+    context.restore();
+  }
+
+  function drawLens(context, style, x, y, width, height, side) {
+    context.beginPath();
+
+    if (style === "round") {
+      context.ellipse(x + width / 2, y + height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
+    } else if (style === "aviator") {
+      context.moveTo(x + width * 0.5, y);
+      context.bezierCurveTo(x + width * 0.92, y + height * 0.02, x + width * 1.03, y + height * 0.48, x + width * 0.58, y + height);
+      context.bezierCurveTo(x + width * 0.34, y + height * 0.98, x - width * 0.05, y + height * 0.56, x + width * 0.12, y + height * 0.14);
+      context.closePath();
+    } else if (style === "cat-eye") {
+      const lift = side === "left" ? -0.08 : 1.08;
+      context.moveTo(x + width * 0.1, y + height * 0.55);
+      context.bezierCurveTo(x + width * 0.08, y + height * 0.08, x + width * 0.62, y + height * 0.02, x + width * lift, y + height * 0.12);
+      context.bezierCurveTo(x + width * 0.88, y + height * 0.88, x + width * 0.28, y + height * 0.95, x + width * 0.1, y + height * 0.55);
+      context.closePath();
+    } else if (style === "geometric") {
+      context.moveTo(x + width * 0.18, y);
+      context.lineTo(x + width * 0.82, y);
+      context.lineTo(x + width, y + height * 0.34);
+      context.lineTo(x + width * 0.82, y + height);
+      context.lineTo(x + width * 0.18, y + height);
+      context.lineTo(x, y + height * 0.34);
+      context.closePath();
+    } else if (style === "wayfarer") {
+      context.moveTo(x + width * 0.08, y + height * 0.12);
+      context.lineTo(x + width * 0.92, y);
+      context.lineTo(x + width, y + height * 0.82);
+      context.quadraticCurveTo(x + width * 0.5, y + height * 1.03, x, y + height * 0.82);
+      context.closePath();
+    } else {
+      roundedRectPath(context, x, y, width, height, width * 0.16);
+    }
+
+    context.fill();
+    context.stroke();
+  }
+
+  function roundedRectPath(context, x, y, width, height, radius) {
+    context.moveTo(x + radius, y);
+    context.lineTo(x + width - radius, y);
+    context.quadraticCurveTo(x + width, y, x + width, y + radius);
+    context.lineTo(x + width, y + height - radius);
+    context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    context.lineTo(x + radius, y + height);
+    context.quadraticCurveTo(x, y + height, x, y + height - radius);
+    context.lineTo(x, y + radius);
+    context.quadraticCurveTo(x, y, x + radius, y);
+  }
+
+  function drawAccentStripe(context, x, y, width) {
+    context.save();
+    context.shadowColor = "transparent";
+    context.lineWidth = Math.max(3, width * 0.55);
+    context.strokeStyle = "#2f6b43";
+    context.beginPath();
+    context.moveTo(x, y);
+    context.lineTo(x + width * 1.6, y + width * 1.6);
+    context.stroke();
+    context.strokeStyle = "#9b2f2f";
+    context.beginPath();
+    context.moveTo(x + width * 0.9, y);
+    context.lineTo(x + width * 2.5, y + width * 1.6);
+    context.stroke();
+    context.restore();
+  }
+
+  function drawCornerDot(context, x, y, width, color) {
+    context.save();
+    context.shadowColor = "transparent";
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(x, y, Math.max(2.5, width * 0.34), 0, Math.PI * 2);
+    context.fill();
+    context.restore();
+  }
+
+  function frameWidthRatio(style) {
+    const ratios = {
+      aviator: 0.94,
+      "cat-eye": 0.9,
+      geometric: 0.88,
+      rectangle: 0.86,
+      round: 0.82,
+      wayfarer: 0.9
+    };
+
+    return ratios[style] || 0.88;
+  }
+
+  function lensHeightRatio(style) {
+    const ratios = {
+      aviator: 0.82,
+      "cat-eye": 0.58,
+      geometric: 0.66,
+      rectangle: 0.56,
+      round: 0.76,
+      wayfarer: 0.6
+    };
+
+    return ratios[style] || 0.62;
   }
 
   function getSampledImageData(context, width, height) {
@@ -484,7 +903,8 @@
       shape: shapeResult.shape,
       hair: hairResult,
       confidence,
-      measurements
+      measurements,
+      bounds
     };
   }
 
@@ -785,7 +1205,13 @@
       ? (state.analysis && state.analysis.hair) || "open"
       : els.hairOverride.value;
 
+    if (state.baseImageData && state.tryOnVisible) {
+      restoreBasePhoto();
+      drawSelectedTryOn();
+    }
+
     updateRecommendationView();
+    updateTryOnControls();
     renderProducts();
   }
 
@@ -821,7 +1247,7 @@
     const brand = els.brandFilter.value;
     const style = els.styleFilter.value;
     const products = PRODUCTS
-      .map((product) => ({ ...product, score: productScore(product) }))
+      .map((product, productIndex) => ({ ...product, productIndex, score: productScore(product) }))
       .filter((product) => brand === "all" || product.brand === brand)
       .filter((product) => style === "all" || product.style === style)
       .sort((a, b) => b.score - a.score || a.brand.localeCompare(b.brand));
@@ -837,10 +1263,10 @@
 
     products.forEach((product, index) => {
       const article = document.createElement("article");
-      article.className = `product-card ${index === 0 ? "best-match" : ""}`;
+      article.className = `product-card ${index === 0 ? "best-match" : ""} ${product.productIndex === state.selectedTryOnIndex && state.tryOnVisible ? "is-trying" : ""}`;
       article.innerHTML = `
         <div class="product-visual">
-          <div class="glasses-icon shape-${product.style}" aria-hidden="true">
+          <div class="glasses-icon shape-${product.style}" style="--frame-color: ${product.frameColor}; --lens-tint: ${product.lensTint};" aria-hidden="true">
             <span class="temple left"></span>
             <span class="lens left"></span>
             <span class="bridge"></span>
@@ -862,6 +1288,9 @@
             <span class="tag">${product.color}</span>
             <span class="tag">${product.price}</span>
           </div>
+          <button class="tryon-card-button" type="button" data-try-on-index="${product.productIndex}">
+            ${state.baseImageData ? "Probar en mi foto" : "Elegir para probar"}
+          </button>
         </div>
       `;
       els.productGrid.append(article);

@@ -195,6 +195,25 @@
               </select>
             </div>
 
+            <div class="tryon-panel">
+              <div class="tryon-heading">
+                <div>
+                  <span class="eyebrow">Prueba virtual</span>
+                  <h4>Simula los lentes en tu foto</h4>
+                </div>
+                <span id="tryOnBadge" class="tryon-badge">Sin foto</span>
+              </div>
+              <label for="tryOnModel">Modelo para probar</label>
+              <select id="tryOnModel">
+                <option value="">Analiza una foto para activar la prueba</option>
+              </select>
+              <div class="tryon-actions">
+                <button id="applyTryOn" class="button primary compact" type="button" disabled>Probar en mi foto</button>
+                <button id="clearTryOn" class="button secondary compact" type="button" disabled>Ver sin lentes</button>
+              </div>
+              <p id="tryOnStatus" class="tryon-status">Sube o toma una foto para ver una montura simulada.</p>
+            </div>
+
             <div id="recommendationSummary" class="recommendation-summary">
               <p>Cuando analices una foto veras aqui el tipo de montura recomendado.</p>
             </div>

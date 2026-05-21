@@ -238,6 +238,12 @@ select:focus-visible,
   box-shadow: 0 14px 32px rgba(36, 27, 24, 0.24);
 }
 
+.button.compact {
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 0.9rem;
+}
+
 .button.secondary,
 .button.upload {
   border: 1px solid var(--line-strong);
@@ -756,6 +762,60 @@ select {
   color: var(--muted-strong);
 }
 
+.tryon-panel {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+  border: 1px solid rgba(234, 217, 206, 0.9);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.66), transparent),
+    rgba(255, 255, 255, 0.46);
+  padding: 18px;
+}
+
+.tryon-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.tryon-heading h4 {
+  margin: 0;
+  font-size: 1.18rem;
+  letter-spacing: -0.035em;
+}
+
+.tryon-badge {
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+
+.tryon-panel label {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.tryon-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tryon-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
 .recommendation-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -853,6 +913,25 @@ select {
   box-shadow: 0 24px 70px rgba(67, 35, 22, 0.16);
 }
 
+.product-card.is-trying {
+  border-color: rgba(168, 95, 66, 0.62);
+  box-shadow: 0 24px 76px rgba(168, 95, 66, 0.2);
+}
+
+.product-card.is-trying::after {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  content: "En prueba";
+  font-size: 0.76rem;
+  font-weight: 900;
+  padding: 7px 10px;
+}
+
 .product-card.best-match::before {
   position: absolute;
   top: 16px;
@@ -889,8 +968,8 @@ select {
   top: 8px;
   width: 66px;
   height: 48px;
-  border: 7px solid var(--ink);
-  background: rgba(255, 255, 255, 0.34);
+  border: 7px solid var(--frame-color, var(--ink));
+  background: var(--lens-tint, rgba(255, 255, 255, 0.34));
 }
 
 .lens.left {
@@ -904,7 +983,7 @@ select {
 .bridge,
 .temple {
   position: absolute;
-  background: var(--ink);
+  background: var(--frame-color, var(--ink));
 }
 
 .bridge {
@@ -1009,6 +1088,28 @@ select {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
+}
+
+.tryon-card-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+  transition:
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+.tryon-card-button:hover,
+.tryon-card-button:focus-visible {
+  transform: translateY(-2px);
+  background: var(--accent-dark);
+  outline: none;
 }
 
 .tag {
